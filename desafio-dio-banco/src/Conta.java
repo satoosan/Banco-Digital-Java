@@ -18,11 +18,7 @@ public abstract class Conta implements IConta{
 
 	@Override
 	public void sacar(double valor) {
-				if(this.saldo < valor) {
-					JOptionPane.showMessageDialog(null, "Saldo Insuficiente!");
-				}else {
-					saldo -= valor;
-				}	
+			saldo -= valor;
 	}
 
 	@Override
@@ -35,7 +31,7 @@ public abstract class Conta implements IConta{
 
 			this.sacar(valor);
 			contaDestino.depositar(valor);
-			
+
 	}
 
 	public int getAgencia() {
@@ -51,10 +47,9 @@ public abstract class Conta implements IConta{
 	}
 
 	protected void imprimirInfosComuns() {
-		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
-		System.out.println(String.format("Agencia: %d", this.agencia));
-		System.out.println(String.format("Numero: %d", this.numero));
-		System.out.println(String.format("Saldo: %.2f\n", this.saldo));
+		JOptionPane.showMessageDialog(null, "Titular: " + this.cliente.getNome()
+		+ "\nAgencia: " + this.agencia + "\nNumero: " +  this.numero
+		+ "\nSaldo: " +  this.saldo);
 	}
 	
 }
